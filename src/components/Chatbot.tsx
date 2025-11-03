@@ -19,7 +19,7 @@ type FlowKey =
 interface Option {
   text: string;
   next: FlowKey;
-  action?: "";
+  action?: "downloadResume";
 }
 
 interface Message {
@@ -33,7 +33,7 @@ interface Message {
 // Personal Information
 // =====================
 const PERSONAL_INFO = {
-  name: "Terrance Nkalanga",
+  name: "Terrance's Personal Assistant",
   title: "Full Stack Developer",
   email: "Tarrancesiyabonga@gmail.com",
   linkedin: "linkedin.com/in/alexjohnson",
@@ -47,7 +47,7 @@ const PERSONAL_INFO = {
 // =====================
 const CONVERSATION_FLOWS: Record<FlowKey, { message: string; options: Option[] }> = {
   greeting: {
-    message: `Hi! 👋 I'm ${PERSONAL_INFO.name}, a ${PERSONAL_INFO.title}. I help recruiters learn about my background and skills. What would you like to know?`,
+    message: `Hi! 👋 I'm ${PERSONAL_INFO.name}, a ${PERSONAL_INFO.title}. I help visitors learn about Terrance's background and skills. What would you like to know?`,
     options: [
       { text: "Skills & Expertise", next: "skills" },
       { text: "Work Experience", next: "experience" },
@@ -57,7 +57,7 @@ const CONVERSATION_FLOWS: Record<FlowKey, { message: string; options: Option[] }
   },
   skills: {
     message:
-      "Terrance specializes in modern web development with expertise in:\n\n• Frontend: React, TypeScript, Three.js, Tailwind CSS, Style Plugins\n• Backend: Node.js, MySQL, REST APIs\n• Cloud: Cloudinary\n• Tools: Git, GitHub, Render, Netlify, Vercel\n\nI'm passionate about building scalable, user-friendly applications with clean code and best practices.",
+      "Terrance specializes in modern web development with expertise in:\n\n• Frontend: React, TypeScript, Three.js, Tailwind CSS, Style Plugins\n• Backend: Node.js, MySQL, REST APIs\n• Cloud: Cloudinary\n• Tools: Git, GitHub, Render, Netlify, Vercel\n\nHe's passionate about building scalable, user-friendly applications with clean code and best practices.",
     options: [
       { text: "Tell me about projects", next: "projects" },
       { text: "Work Experience", next: "experience" },
@@ -67,18 +67,18 @@ const CONVERSATION_FLOWS: Record<FlowKey, { message: string; options: Option[] }
   },
   experience: {
     message:
-      "Here's a quick overview of my experience:\n\n💼 Senior Developer at TechCorp (2021-Present)\n• Led team of 5 developers\n• Built scalable SaaS platform serving 50k+ users\n• Improved performance by 40%\n\n💼 Full Stack Developer at StartupXYZ (2019-2021)\n• Developed core product features\n• Implemented automated testing\n• Collaborated with cross-functional teams\n\nI have 5+ years of professional development experience.",
+      "💼During WIL at a citrus farm, the farm’s location was difficult to find and the existing website was outdated\n\n🚀A modern website was developed to improve accessibility for students and provide an online platform to market the farm.",
     options: [
-      { text: "View my skills", next: "skills" },
+      { text: "View Terrance's skills", next: "skills" },
       { text: "See projects", next: "projects" },
       { text: "Back to menu", next: "greeting" },
     ],
   },
   education: {
     message:
-      "🎓 Education & Certifications:\n\n• BS in Computer Science - Stanford University (2019)\n• AWS Certified Solutions Architect\n• Google Cloud Professional Developer\n\nI'm committed to continuous learning and staying current with the latest technologies through courses, conferences, and side projects.",
+      "🎓Certifications:\n\nTerrance completed courses on Udemy, focusing on React and Tailwind CSS, built practical skills through hands-on projects.",
     options: [
-      { text: "View my skills", next: "skills" },
+      { text: "View Terrance's skills", next: "skills" },
       { text: "Work Experience", next: "experience" },
       { text: "Get in touch", next: "contact" },
       { text: "Back to menu", next: "greeting" },
@@ -86,26 +86,26 @@ const CONVERSATION_FLOWS: Record<FlowKey, { message: string; options: Option[] }
   },
   projects: {
     message:
-      "🚀 Notable Projects:\n\n1. E-commerce Platform - Built full-stack marketplace with React & Node.js, processing $1M+ in transactions\n\n2. AI Dashboard - Created analytics dashboard with real-time data visualization for 10k+ users\n\n3. Open Source Contributor - Active contributor to React ecosystem libraries\n\nI love building products that solve real problems!",
+      "🚀 Notable Projects:\n\n1. Real Time Chat App - Built full-stack with React & Node.js, used socket.io for fast replies.\n\n2. Dashboard App - Created analytics dashboard a frontend project.\n\n3. Animation App - Exploring new animation and easy to use tools.\n\nHe loves building products that solve real problems!",
     options: [
-      { text: "Check my GitHub", next: "github" },
-      { text: "View my skills", next: "skills" },
+      { text: "Check his GitHub", next: "github" },
+      { text: "View his skills", next: "skills" },
       { text: "Get in touch", next: "contact" },
       { text: "Back to menu", next: "greeting" },
     ],
   },
   contact: {
-    message: `📬 Let's connect! Here's how to reach me:\n\n📧 Email: ${PERSONAL_INFO.email}\n💼 LinkedIn: ${PERSONAL_INFO.linkedin}\n💻 GitHub: ${PERSONAL_INFO.github}\n📍 Location: ${PERSONAL_INFO.location}\n\n✅ ${PERSONAL_INFO.availability}\n\nI typically respond within 24 hours. Looking forward to hearing from you!`,
+    message: `📬 Connect with Terrance! Here's how to reach him:\n\n📧 Email: ${PERSONAL_INFO.email}\n💼 LinkedIn: ${PERSONAL_INFO.linkedin}\n💻 GitHub: ${PERSONAL_INFO.github}\n📍 Location: ${PERSONAL_INFO.location}\n\n✅ ${PERSONAL_INFO.availability}\n\nHe typically respond within 24 hours.`,
     options: [
-      { text: "View my skills", next: "skills" },
+      { text: "View his skills", next: "skills" },
       { text: "Work Experience", next: "experience" },
       { text: "Start over", next: "greeting" },
     ],
   },
   github: {
-    message: `You can check out my code and projects on GitHub:\n\n${PERSONAL_INFO.github}\n\nI believe in learning in public and contributing to the developer community. Feel free to explore my repositories!`,
+    message: `You can check out his code and projects on GitHub:\n\n${PERSONAL_INFO.github}\n\nHe believes in learning in public and contributing to the developer community. Feel free to explore his repositories!`,
     options: [
-      { text: "View my skills", next: "skills" },
+      { text: "View his skills", next: "skills" },
       { text: "Get in touch", next: "contact" },
       { text: "Back to menu", next: "greeting" },
     ],
@@ -162,6 +162,8 @@ export default function Chatbot({ initialOpen = false }: ChatbotProps) {
       ...prev,
       { type: "user", text: option.text, timestamp: new Date() },
     ]);
+
+    setTimeout(() => addBotMessage(option.next), 500);
   };
 
   const resetChat = () => {
@@ -214,15 +216,6 @@ export default function Chatbot({ initialOpen = false }: ChatbotProps) {
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={resetChat}
-                    className="text-white hover:bg-white/20 h-8 w-8"
-                    title="Reset chat"
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
                   <Button
                     variant="ghost"
                     size="icon"
