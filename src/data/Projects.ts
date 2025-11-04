@@ -6,7 +6,7 @@ export interface project {
   image: string;
   project_link: string;
   id: number;
-}
+};
 
 export const projectList: project[] = [
   {
@@ -30,7 +30,7 @@ export const projectList: project[] = [
     image: "/assets/ChatApp.png",
   },
   {
-    name: "Vite react typescript starter",
+    name: "Dashboard template",
     skills: [
       "React",
       "Tailwindcss",
@@ -44,6 +44,36 @@ export const projectList: project[] = [
     backend: "",
     project_link: "",
     id: 2,
+    image: "/assets/Contract.png",
+  },
+  {
+    name: "Animation App",
+    skills: [
+      "React",
+      "Tailwindcss",
+      "Gsap",
+      "Framer-motion",
+      "CSS"
+    ],
+    frontend: "",
+    backend: "",
+    project_link: "",
+    id: 3,
+    image: "/assets/Contract.png",
+  },
+  {
+    name: "Movies API App",
+    skills: [
+      "React",
+      "Tailwindcss",
+      "Gsap",
+      "Framer-motion",
+      "CSS"
+    ],
+    frontend: "",
+    backend: "",
+    project_link: "",
+    id: 4,
     image: "/assets/Contract.png",
   }
 ];

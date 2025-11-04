@@ -47,7 +47,7 @@ const PERSONAL_INFO = {
 // =====================
 const CONVERSATION_FLOWS: Record<FlowKey, { message: string; options: Option[] }> = {
   greeting: {
-    message: `Hi! 👋 I'm ${PERSONAL_INFO.name}, a ${PERSONAL_INFO.title}. I help visitors learn about Terrance's background and skills. What would you like to know?`,
+    message: `Hello! 👋 I am ${PERSONAL_INFO.name}, a ${PERSONAL_INFO.title}. I assist visitors in learning about Terrance's background and professional skills. What would you like to explore today?`,
     options: [
       { text: "Skills & Expertise", next: "skills" },
       { text: "Work Experience", next: "experience" },
@@ -57,7 +57,7 @@ const CONVERSATION_FLOWS: Record<FlowKey, { message: string; options: Option[] }
   },
   skills: {
     message:
-      "Terrance specializes in modern web development with expertise in:\n\n• Frontend: React, TypeScript, Three.js, Tailwind CSS, Style Plugins\n• Backend: Node.js, MySQL, REST APIs\n• Cloud: Cloudinary\n• Tools: Git, GitHub, Render, Netlify, Vercel\n\nHe's passionate about building scalable, user-friendly applications with clean code and best practices.",
+      "Terrance has extensive experience in modern web development. His expertise includes:\n\n• Frontend: React, TypeScript, Three.js, Tailwind CSS, and style plugins\n• Backend: Node.js, MySQL, REST APIs\n• Cloud Services: Cloudinary\n• Tools: Git, GitHub, Render, Netlify, Vercel\n\nHe is committed to building scalable, user-friendly applications with clean code and best practices.",
     options: [
       { text: "Tell me about projects", next: "projects" },
       { text: "Work Experience", next: "experience" },
@@ -67,7 +67,7 @@ const CONVERSATION_FLOWS: Record<FlowKey, { message: string; options: Option[] }
   },
   experience: {
     message:
-      "💼During WIL at a citrus farm, the farm’s location was difficult to find and the existing website was outdated\n\n🚀A modern website was developed to improve accessibility for students and provide an online platform to market the farm.",
+      "💼 During his WIL at a citrus farm, Terrance noticed that the farm’s location was hard to find and the website was outdated. To address this, he developed a modern website that improves accessibility for students and provides an online platform to market the farm.",
     options: [
       { text: "View Terrance's skills", next: "skills" },
       { text: "See projects", next: "projects" },
@@ -76,7 +76,7 @@ const CONVERSATION_FLOWS: Record<FlowKey, { message: string; options: Option[] }
   },
   education: {
     message:
-      "🎓Certifications:\n\nTerrance completed courses on Udemy, focusing on React and Tailwind CSS, built practical skills through hands-on projects.",
+      "🎓 Terrance has completed several courses on Udemy, focusing on React and Tailwind CSS. He gained practical skills by building hands-on projects that demonstrate his proficiency in modern web development.",
     options: [
       { text: "View Terrance's skills", next: "skills" },
       { text: "Work Experience", next: "experience" },
@@ -86,7 +86,7 @@ const CONVERSATION_FLOWS: Record<FlowKey, { message: string; options: Option[] }
   },
   projects: {
     message:
-      "🚀 Notable Projects:\n\n1. Real Time Chat App - Built full-stack with React & Node.js, used socket.io for fast replies.\n\n2. Dashboard App - Created analytics dashboard a frontend project.\n\n3. Animation App - Exploring new animation and easy to use tools.\n\nHe loves building products that solve real problems!",
+      "🚀 Notable projects include:\n\n1. Real-Time Chat App – A full-stack application built with React and Node.js, featuring fast real-time communication using socket.io.\n\n2. Dashboard App – A frontend analytics dashboard for visualizing data and insights.\n\n3. Animation App – A project exploring web animations and user-friendly interactive tools.\n\nTerrance enjoys creating solutions that solve real-world problems effectively.",
     options: [
       { text: "Check his GitHub", next: "github" },
       { text: "View his skills", next: "skills" },
@@ -95,7 +95,7 @@ const CONVERSATION_FLOWS: Record<FlowKey, { message: string; options: Option[] }
     ],
   },
   contact: {
-    message: `📬 Connect with Terrance! Here's how to reach him:\n\n📧 Email: ${PERSONAL_INFO.email}\n💼 LinkedIn: ${PERSONAL_INFO.linkedin}\n💻 GitHub: ${PERSONAL_INFO.github}\n📍 Location: ${PERSONAL_INFO.location}\n\n✅ ${PERSONAL_INFO.availability}\n\nHe typically respond within 24 hours.`,
+    message: `📬 Connect with Terrance! You can reach him through the following channels:\n\n📧 Email: ${PERSONAL_INFO.email}\n💼 LinkedIn: ${PERSONAL_INFO.linkedin}\n💻 GitHub: ${PERSONAL_INFO.github}\n📍 Location: ${PERSONAL_INFO.location}\n\n✅ He is currently available for new opportunities and typically responds within 24 hours.`,
     options: [
       { text: "View his skills", next: "skills" },
       { text: "Work Experience", next: "experience" },
@@ -103,7 +103,9 @@ const CONVERSATION_FLOWS: Record<FlowKey, { message: string; options: Option[] }
     ],
   },
   github: {
-    message: `You can check out his code and projects on GitHub:\n\n${PERSONAL_INFO.github}\n\nHe believes in learning in public and contributing to the developer community. Feel free to explore his repositories!`,
+    message:
+      "You can explore Terrance's code and projects on GitHub. He believes in learning publicly and contributing to the developer community. Feel free to browse his repositories:\n\n" +
+      `${PERSONAL_INFO.github}`,
     options: [
       { text: "View his skills", next: "skills" },
       { text: "Get in touch", next: "contact" },
