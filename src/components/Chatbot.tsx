@@ -36,10 +36,10 @@ const PERSONAL_INFO = {
   name: "Terrance's Personal Assistant",
   title: "Full Stack Developer",
   email: "Tarrancesiyabonga@gmail.com",
-  linkedin: "linkedin.com/in/alexjohnson",
-  github: "github.com/alexjohnson",
+  linkedin: "https://www.linkedin.com/in/terrance-nkalanga-232138253/",
+  github: "https://github.com/TERRANCE631",
   availability: "Available for new opportunities",
-  location: "Pretoria, South Africa",
+  location: "Nelspruit, Mpumalanga, South Africa ",
 };
 
 // =====================
@@ -95,7 +95,7 @@ const CONVERSATION_FLOWS: Record<FlowKey, { message: string; options: Option[] }
     ],
   },
   contact: {
-    message: `📬 Connect with Terrance! You can reach him through the following channels:\n\n📧 Email: ${PERSONAL_INFO.email}\n💼 LinkedIn: ${PERSONAL_INFO.linkedin}\n💻 GitHub: ${PERSONAL_INFO.github}\n📍 Location: ${PERSONAL_INFO.location}\n\n✅ He is currently available for new opportunities and typically responds within 24 hours.`,
+    message: `📬 Connect with Terrance! You can reach him through the following channels:\n\n💼 LinkedIn: ${PERSONAL_INFO.linkedin}\n💻 GitHub: ${PERSONAL_INFO.github}\n📍 Location: ${PERSONAL_INFO.location}\n\n✅ He is currently available for new opportunities and typically responds within 24 hours.`,
     options: [
       { text: "View his skills", next: "skills" },
       { text: "Work Experience", next: "experience" },
@@ -210,7 +210,8 @@ export default function Chatbot({ initialOpen = false }: ChatbotProps) {
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-4 flex items-center justify-between text-white">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                    <User className="w-5 h-5" />
+                    {/* <User className="w-5 h-5" /> */}
+                    <img className="rounded-full" src="./assets/Green.jpeg" alt="" />
                   </div>
                   <div>
                     <h3 className="font-semibold">{PERSONAL_INFO.name}</h3>
@@ -292,9 +293,6 @@ export default function Chatbot({ initialOpen = false }: ChatbotProps) {
 
               {/* Footer with social links */}
               <div className="p-3 bg-white border-t border-gray-100 flex items-center justify-center gap-2">
-                <a href={`mailto:${PERSONAL_INFO.email}`} target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-gray-100 rounded-full transition-colors" title="Email">
-                  <Mail className="w-4 h-4 text-gray-600" />
-                </a>
                 <a href={`https://${PERSONAL_INFO.linkedin}`} target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-gray-100 rounded-full transition-colors" title="LinkedIn">
                   <Linkedin className="w-4 h-4 text-gray-600" />
                 </a>

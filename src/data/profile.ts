@@ -21,6 +21,6 @@ export const profileData: ProfileData = {
   location: "Gauteng, Pretoria",
   website: null,
   github: "github.com/Terrance631",
-  linkedin: "linkedin.com/in/Terrance",
+  linkedin: "https://www.linkedin.com/in/terrance-nkalanga-232138253/",
   twitter: null
 };
