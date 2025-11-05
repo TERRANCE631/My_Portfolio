@@ -23,8 +23,14 @@ const Contact = ({ contactRef }) => {
       const res = await axios.post(import.meta.env.VITE_WEB3FORMS_API, formData);
 
       if (res.data.success) {
+        setFormData({
+          access_key: access_key,
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
         toast.success("Message sent successfully!");
-        setFormData({  name: "", email: "", subject: "", message: "", access_key });
       } else {
         toast.error("Failed to send message.");
       }
