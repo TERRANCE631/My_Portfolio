@@ -30,7 +30,7 @@ app.post("/api/sendEmail", async (req, res) => {
         return res.status(400).json({ success: false, error: "Missing fields" });
     }
 
-    const resend = new Resend("re_ZPgb45kL_ExBNV8hN891amr9w9makP4Nt");
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     try {
         await resend.emails.send({
