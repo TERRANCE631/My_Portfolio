@@ -24,7 +24,7 @@ const Contact = ({ contactRef }) => {
 
       if (res.data.success) {
         toast.success("Message sent successfully!");
-        setFormData({ ...formData, name: "", email: "", subject: "", message: "", access_key });
+        setFormData({  name: "", email: "", subject: "", message: "", access_key });
       } else {
         toast.error("Failed to send message.");
       }
@@ -132,6 +132,7 @@ const Contact = ({ contactRef }) => {
                       type="text"
                       id="name"
                       name="name"
+                      value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full rounded-lg border border-input p-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple"
                       placeholder="Your name"
@@ -145,6 +146,7 @@ const Contact = ({ contactRef }) => {
                       type="email"
                       id="email"
                       name="email"
+                      value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full rounded-lg border border-input p-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple"
                       placeholder="Your email"
@@ -160,6 +162,7 @@ const Contact = ({ contactRef }) => {
                     type="text"
                     id="subject"
                     name="subject"
+                    value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full rounded-lg border border-input p-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple"
                     placeholder="Subject of your message"
@@ -173,6 +176,7 @@ const Contact = ({ contactRef }) => {
                   <textarea
                     id="message"
                     name="message"
+                    value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows={5}
                     className="w-full rounded-lg border border-input p-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple"
