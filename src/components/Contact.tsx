@@ -13,7 +13,7 @@ const Contact = ({ contactRef }) => {
     email: "",
     subject: "",
     message: "",
-  });
+  })
 
   const handleSubmit = async (e) => {
     e.preventDefault();
