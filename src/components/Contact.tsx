@@ -24,7 +24,7 @@ const Contact = ({ contactRef }) => {
 
       if (res.data.success) {
         toast.success("Message sent successfully!");
-        setFormData({ name: "", email: "", subject: "", message: "", access_key });
+        setFormData({ ...formData, name: "", email: "", subject: "", message: "", access_key });
       } else {
         toast.error("Failed to send message.");
       }
