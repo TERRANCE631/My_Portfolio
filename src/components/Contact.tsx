@@ -1,8 +1,41 @@
-
-import React from 'react';
 import { profileData } from '../data/profile';
+import { toast } from 'sonner';
+import axios from "axios";
+import { useState } from 'react';
+import { Loader2 } from 'lucide-react';
 
 const Contact = ({ contactRef }) => {
+  const access_key = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    access_key: access_key,
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const res = await axios.post(import.meta.env.VITE_WEB3FORMS_API, formData);
+
+      if (res.data.success) {
+        toast.success("Message sent successfully!");
+        setFormData({ name: "", email: "", subject: "", message: "", access_key });
+      } else {
+        toast.error("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error sending contact form |->", error.message);
+      toast.error(`Server or network error |-> ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20">
       <div ref={contactRef} className="container mx-auto px-4 md:px-6">
@@ -89,7 +122,7 @@ const Contact = ({ contactRef }) => {
             <div>
               <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
 
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -98,6 +131,8 @@ const Contact = ({ contactRef }) => {
                     <input
                       type="text"
                       id="name"
+                      name="name"
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full rounded-lg border border-input p-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple"
                       placeholder="Your name"
                     />
@@ -109,6 +144,8 @@ const Contact = ({ contactRef }) => {
                     <input
                       type="email"
                       id="email"
+                      name="email"
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full rounded-lg border border-input p-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple"
                       placeholder="Your email"
                     />
@@ -122,6 +159,8 @@ const Contact = ({ contactRef }) => {
                   <input
                     type="text"
                     id="subject"
+                    name="subject"
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full rounded-lg border border-input p-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple"
                     placeholder="Subject of your message"
                   />
@@ -133,6 +172,8 @@ const Contact = ({ contactRef }) => {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows={5}
                     className="w-full rounded-lg border border-input p-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple"
                     placeholder="Your message"
@@ -143,7 +184,7 @@ const Contact = ({ contactRef }) => {
                   type="submit"
                   className="w-full md:w-auto px-6 py-3 bg-purple text-white font-medium rounded-lg shadow-md hover:bg-purple-dark transition-colors"
                 >
-                  Send Message
+                  {!loading ? "Send Message" : <Loader2 className="animate-spin" />}
                 </button>
               </form>
             </div>

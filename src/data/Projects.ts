@@ -6,6 +6,7 @@ export interface project {
   image: string;
   project_link: string;
   id: number;
+  fullstack?: boolean;
 };
 
 export const projectList: project[] = [
@@ -23,9 +24,10 @@ export const projectList: project[] = [
       "Socket.io-client",
       "JWT"
     ],
-    frontend: "",
-    backend: "",
-    project_link: "",
+    fullstack: true,
+    frontend: "https://github.com/TERRANCE631/Real_Chat_Frontend",
+    backend: "https://github.com/TERRANCE631/Real_Chat_Backend",
+    project_link: "https://real-chat-frontend-three.vercel.app",
     id: 1,
     image: "/assets/ChatApp.png",
   },
@@ -34,15 +36,12 @@ export const projectList: project[] = [
     skills: [
       "React",
       "Tailwindcss",
-      "Typescript",
-      "Axios",
-      "Node.js",
-      "MySQL",
-      "JWT"
+      "Typescript"
     ],
-    frontend: "",
+    fullstack: false,
+    frontend: "https://github.com/TERRANCE631/Dashboard_Template_Updated",
     backend: "",
-    project_link: "",
+    project_link: "https://dashboard-template-updated.vercel.app",
     id: 2,
     image: "/assets/Contract.png",
   },
@@ -55,25 +54,11 @@ export const projectList: project[] = [
       "Framer-motion",
       "CSS"
     ],
-    frontend: "",
+    fullstack: false,
+    frontend: "https://github.com/TERRANCE631/Animated_WebApp",
     backend: "",
-    project_link: "",
+    project_link: "https://animated-web-app-jade.vercel.app",
     id: 3,
-    image: "/assets/Contract.png",
-  },
-  {
-    name: "Movies API App",
-    skills: [
-      "React",
-      "Tailwindcss",
-      "Gsap",
-      "Framer-motion",
-      "CSS"
-    ],
-    frontend: "",
-    backend: "",
-    project_link: "",
-    id: 4,
-    image: "/assets/Contract.png",
+    image: "/assets/Animated.png",
   }
 ];
